@@ -44,6 +44,44 @@ html {
     width: 100%;
     max-width: 480px;
     border-bottom: 1px solid #ebebeb;
+    z-index: 1;
+    box-shadow: 0px -26px 40px -20px rgb(0 0 0 / 10%);
+}
+
+.locationmusic {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    bottom: 0;
+    height: 60px;
+    max-width: 480px;
+    background-color: #fff;
+    box-shadow: 0px -26px 40px -20px rgb(0 0 0 / 10%);
+    display: flex;
+    justify-content: space-around;
+}
+
+.vietnamese,
+.kr,
+.us,
+.jp,
+.love {
+    width: 90px;
+    height: 100%;
+    /* background-color: #ec1f55; */
+    padding: 5px;
+    text-align: center;
+    line-height: 50px;
+    border-right: 1px solid #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.select {
+    background-color: var(--primary-color);
+    color: #fff;
 }
 
 
@@ -134,12 +172,18 @@ header h2 {
     cursor: pointer;
 }
 
+.progress:hover {
+    cursor: pointer;
+}
+
 
 /* PLAYLIST */
 
 .playlist {
     margin-top: 408px;
     padding: 12px;
+    box-shadow: 0px 0px 40px -10px rgb(0 0 0 / 10%);
+    margin-bottom: 40px;
 }
 
 .song {
@@ -190,7 +234,78 @@ header h2 {
 }
 
 .song .option {
+    position: relative;
     padding: 16px 8px;
     color: #999;
     font-size: 18px;
+}
+
+.blockoptions {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 480px;
+    z-index: 3;
+    background-color: #fff;
+    height: 100px;
+    border-top: 1px solid #d3d3d3;
+    transform: translateY(100px);
+    transition: transform linear 0.3s;
+    animation: option 0.3s linear;
+}
+
+.blockoptions.active {
+    transform: translateY(0px);
+}
+
+.blockoptions .download,
+.blockoptions .like {
+    height: 50px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    line-height: 50px;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.download a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+}
+
+.blockoptions .like:hover {
+    cursor: pointer;
+}
+
+.box {
+    position: fixed;
+    background-color: #666;
+    opacity: 0.2;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    max-width: 480px;
+    top: 0;
+    bottom: 0;
+    display: none;
+}
+
+.box.active {
+    display: block;
+}
+
+@keyframes option {
+    form {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.like.active {
+    background-color: var(--primary-color);
+    color: #fff;
+    font-weight: bold;
 }
